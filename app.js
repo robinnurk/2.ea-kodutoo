@@ -63,6 +63,7 @@ TYPER.prototype = {
     const generatedWordLength = this.wordMinLength + parseInt(this.guessedWords / 5)
     const randomIndex = (Math.random() * (this.words[generatedWordLength].length - 1)).toFixed()
     const wordFromArray = this.words[generatedWordLength][randomIndex]
+	const scoreCount = this.guessedWords
 
     this.word = new Word(wordFromArray, this.canvas, this.ctx)
   },
@@ -75,7 +76,8 @@ TYPER.prototype = {
 
       if (this.word.left.length === 0) {
         this.guessedWords += 1
-
+		this.scoreCount += 1
+		console.log("punkt juures")
         this.generateWord()
       }
 
